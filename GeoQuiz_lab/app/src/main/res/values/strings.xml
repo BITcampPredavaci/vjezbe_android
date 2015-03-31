@@ -1,16 +1,20 @@
 <resources>
     <string name="app_name">GeoQuiz_lab</string>
 
-   <string name="question_1">Is the meaning of universe and life itself 42 ?</string>
+    <string name="question_1">Is the meaning of universe and life itself 42 ?</string>
     <string name="question_2">I hate mondays and don\'t care about your answer</string>
-    <string name="question_3">Do you even Java bro?</string>
+    <string name="question_3">Do you even Java?</string>
 
 
     <string name="true_label">True</string>
     <string name="false_label">False</string>
+    <string name="stats_label"> Stats </string>
 
     <string name="correct">Correct answer</string>
     <string name="incorrect"> Incorrect answer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_stats">StatsActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
