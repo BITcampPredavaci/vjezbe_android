@@ -20,6 +20,14 @@
             android:name=".StatsActivity"
             android:label="@string/title_activity_stats" >
         </activity>
+        <activity
+            android:name=".InputActivity"
+            android:label="@string/title_activity_name" >
+        </activity>
+        <activity
+            android:name=".NameActivity"
+            android:label="@string/title_activity_name" >
+        </activity>
     </application>
 
 </manifest>
