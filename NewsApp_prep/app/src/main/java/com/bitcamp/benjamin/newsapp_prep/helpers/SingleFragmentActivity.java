@@ -19,16 +19,16 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //TODO add the a reference to your layout file
+
         setContentView(R.layout.activity_main);
         FragmentManager fm = getSupportFragmentManager();
 
-        //TODO add reference to your fragment container
+
         Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
         if (fragment == null) {
             fragment = createFragment();
             fm.beginTransaction()
-                    //TODO another reference to the fragment container
+
                     .add(R.id.fragmentContainer, fragment)
                     .commit();
         }

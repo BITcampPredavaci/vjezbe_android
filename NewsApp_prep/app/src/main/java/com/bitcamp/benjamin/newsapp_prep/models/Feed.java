@@ -1,6 +1,7 @@
 package com.bitcamp.benjamin.newsapp_prep.models;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * A collection of articles, for now
@@ -41,4 +42,16 @@ public class Feed {
     public ArrayList<Article> getArticles(){
         return articles;
     }
+
+    //TODO implement method to get a particular article from the list
+    public Article getArticle(UUID id){
+        return null;
+    }
+
+    //TODO implement method we call to get articles from the web
+    public void loadFeed(String url){
+
+    }
+
+
 }

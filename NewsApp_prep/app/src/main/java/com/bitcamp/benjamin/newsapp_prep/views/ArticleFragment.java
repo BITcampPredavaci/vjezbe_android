@@ -28,6 +28,7 @@ public class ArticleFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
+        //TODO the user picked article
         //just to have something to work with
         mArticle = new Article("Test Title", "Some test content to be testy and stuff", false);
         for(int i = 0; i < 5; i++){

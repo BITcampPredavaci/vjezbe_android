@@ -24,19 +24,19 @@ import java.util.ArrayList;
 public class FeedFragment extends ListFragment {
 
 
-    private ArrayList<Article> feed;
+    private ArrayList<Article> mFeed;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivity().setTitle(R.string.list_name);
-        feed = Feed.getInstance().getArticles();
+        mFeed = Feed.getInstance().getArticles();
 
         //TODO add your own adapter
         ArrayAdapter<Article> adapter =
                 new ArrayAdapter<Article>(getActivity(), android.R.layout.simple_expandable_list_item_1,
-                        feed);
+                        mFeed);
        setListAdapter(adapter);
     }
 
@@ -47,4 +47,12 @@ public class FeedFragment extends ListFragment {
         Intent goToArticle = new Intent(getActivity(), ArticleActivity.class);
         startActivity(goToArticle);
     }
+
+    //TODO adapter implementation
+    /*private class ArticleAdapter extends ArrayAdapter<Article>{
+
+    }*/
+
+    //TODO implement background task
+    //private class FetchItemsTask extends AsyncTask<Void,Void,Void>{ }
 }
