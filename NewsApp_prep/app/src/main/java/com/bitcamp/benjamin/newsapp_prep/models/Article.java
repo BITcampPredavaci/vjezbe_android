@@ -11,6 +11,7 @@ public class Article {
     private UUID mId;
     private String mTitle;
     private String mContent;
+    private String mPreview;
     private boolean mRead;
 
     public Article() {
@@ -25,6 +26,16 @@ public class Article {
         mTitle = title;
         mContent = content;
         mRead = read;
+        int endIndex = mContent.length() > 50 ? 50 : mContent.length();
+        mPreview = mContent.substring(0, endIndex);
+    }
+
+    public String getPreview() {
+        return mPreview;
+    }
+
+    public void setPreview(String preview) {
+        mPreview = preview;
     }
 
     @Override
