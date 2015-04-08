@@ -1,13 +1,10 @@
 package com.bitcamp.benjamin.newsapp_prep.models;
 
-import android.util.Log;
-import android.util.Xml;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,6 +45,15 @@ public class Feed {
                 return a;
         }
         return null;
+    }
+
+    public void setRead(UUID id) {
+        for (Article a : articles) {
+            if (a.getId().equals(id)) {
+                a.setRead(true);
+
+            }
+        }
     }
 
     //TODO implement method we call to get articles from the web
@@ -110,7 +116,7 @@ public class Feed {
             if (parser.next() == XmlPullParser.START_TAG &&
                     "item".equals(parser.getName())) {
 
-                String title = null, content = null;
+                String title = null, content = null, imageUrl = null, preview = null;
 
                 while (parser.next() != XmlPullParser.END_TAG) {
                     if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -122,11 +128,15 @@ public class Feed {
                         title = readField(parser, "title");
                     } else if (name.equals("clanak")) {
                         content = readField(parser, "clanak");
-                    } else {
+                    } else if(name.equals("image")) {
+                        imageUrl = readField(parser, "image").replace("t1_", "");
+                    } else if(name.equals("uvod")){
+                        preview = readField(parser, "uvod");
+                    } else{
                         skip(parser);
                     }
                 }
-                articles.add(new Article(title, content, false));
+                articles.add(new Article(title, content, false, preview, imageUrl));
             }
 
         }

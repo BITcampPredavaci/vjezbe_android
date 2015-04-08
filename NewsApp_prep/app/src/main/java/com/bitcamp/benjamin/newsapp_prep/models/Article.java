@@ -13,21 +13,31 @@ public class Article {
     private String mContent;
     private String mPreview;
     private boolean mRead;
+    private String mImageURL;
 
     public Article() {
         mId = UUID.randomUUID();
         mTitle = "";
         mContent = "";
         mRead = false;
+        mImageURL = "";
     }
 
-    public Article(String title, String content, boolean read) {
+    public Article(String title, String content, boolean read, String preview, String imageURL) {
         mId = UUID.randomUUID();
         mTitle = title;
         mContent = content;
         mRead = read;
-        int endIndex = mContent.length() > 50 ? 50 : mContent.length();
-        mPreview = mContent.substring(0, endIndex);
+        mPreview = preview;
+        mImageURL = imageURL;
+    }
+
+    public String getImageURL() {
+        return mImageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        mImageURL = imageURL;
     }
 
     public String getPreview() {

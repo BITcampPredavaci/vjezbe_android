@@ -2,7 +2,6 @@ package com.bitcamp.benjamin.newsapp_prep.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,20 +28,20 @@ public class ArticleFragment extends Fragment {
     private TextView mArticleTitle;
     private TextView mArticleContent;
 
-    public static ArticleFragment getArticleFragmentInstance(UUID articleID){
-       Bundle articleBundle = new Bundle();
-       articleBundle.putSerializable(EXTRA_ARTICLE_ID, articleID);
-       ArticleFragment articleFragment = new ArticleFragment();
-       articleFragment.setArguments(articleBundle);
+    public static ArticleFragment getArticleFragmentInstance(UUID articleID) {
+        Bundle articleBundle = new Bundle();
+        articleBundle.putSerializable(EXTRA_ARTICLE_ID, articleID);
+        ArticleFragment articleFragment = new ArticleFragment();
+        articleFragment.setArguments(articleBundle);
         return articleFragment;
     }
 
     /*you have seen this before*/
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        UUID articleID = (UUID)getArguments().getSerializable(EXTRA_ARTICLE_ID);
+        UUID articleID = (UUID) getArguments().getSerializable(EXTRA_ARTICLE_ID);
         mArticle = Feed.getInstance().getArticle(articleID);
 
     }

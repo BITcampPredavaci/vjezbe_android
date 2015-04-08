@@ -5,20 +5,39 @@
              tools:context="com.bitcamp.benjamin.newsapp_prep.views.FeedFragment"
             android:orientation="vertical">
 
+
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/article_image"
+        android:layout_below="@id/article_title"
+        android:layout_toRightOf="@id/article_content"
+        />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:text="ArticleTitle"
         android:id="@+id/article_title"/>
 
+
+</LinearLayout>
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:text="Article Content"
+        android:layout_below="@id/article_title"
         android:textStyle="italic"
         android:id="@+id/article_content"
         />
