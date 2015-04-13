@@ -28,12 +28,13 @@ public class PostRequest {
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
+                .addHeader("Authorization", "Basic dGVzdEBtYWlsLmNvbToxMjM0NTY=")
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Accept", "application/json")
                 .build();
 
-        ckm.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
-        client.setCookieHandler(ckm);
+        //ckm.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
+        //client.setCookieHandler(ckm);
 
         Call call = client.newCall(request);
         call.enqueue(callback);

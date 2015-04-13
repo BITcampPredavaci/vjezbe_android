@@ -38,7 +38,7 @@ public class SendPostActivity extends ActionBarActivity {
                 String title = titleEdit.getText().toString();
                 String content = contentEdit.getText().toString();
 
-                String url = "http://10.0.2.2:9000/addPost";
+                String url = "http://10.0.2.2:9000/api/addPost";
                 String jsonObject = String.format("{" +
                         " \"title\": \"%s\", " +
                         " \"content\": \"%s\" " +

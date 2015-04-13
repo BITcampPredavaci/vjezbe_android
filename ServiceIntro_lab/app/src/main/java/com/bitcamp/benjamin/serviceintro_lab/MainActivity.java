@@ -40,8 +40,8 @@ public class MainActivity extends ActionBarActivity {
                 getString(R.string.user_password_key), null);
 
         if(email != null && password != null){
-            sendLogin(email, password);
-
+            //sendLogin(email, password);
+            goToPost();
             //TODO
             //Send user to other activity
         }
