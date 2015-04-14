@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="service_login">http://10.0.2.2:9000/login</string>
+    <string name="service_posts">http://10.0.2.2:9000/allPosts</string>
+</resources>
