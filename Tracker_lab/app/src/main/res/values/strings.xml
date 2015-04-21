@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Tracker_lab</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="label_latitude">Latitude</string>
+    <string name="label_longitude">Longitude</string>
+    <string name="label_altitude">Altitude</string>
+
+    <string name="gps_enabled">GPS Enabled</string>
+    <string name="gps_disabled">GPS Disabled</string>
+
+    <string name="placeholder">Placeholder</string>
+
+    <string name="google_geocoder" formatted = "false">
+        https://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&amp;key=AIzaSyAUXSpXG-g31hg8wL1gsxP5YuWDQGjgW40
+    </string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

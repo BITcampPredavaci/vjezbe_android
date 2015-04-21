@@ -1,9 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
+      xmlns:Services_lab="http://schemas.android.com/apk/res-auto"
       tools:context=".MainActivity">
     <item android:id="@+id/action_settings"
           android:title="@string/action_settings"
           android:orderInCategory="100"
           app:showAsAction="never"/>
+
+    <item android:id="@+id/menu_post"
+          android:title="@string/menu_post"
+          Services_lab:showAsAction="ifRoom"
+        ></item>
+
+    <item android:id="@+id/menu_profile"
+          android:title="@string/menu_profile"
+          Services_lab:showAsAction="ifRoom"
+        ></item>
 </menu>

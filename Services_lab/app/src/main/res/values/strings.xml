@@ -16,6 +16,11 @@
     <!-- Toast -->
     <string name="toast_try_again">Something went wrong! Try again</string>
 
+    <!-- menu -->
+    <string name="menu_profile">Profile</string>
+    <string name="menu_post">Post</string>
+
+
     <string name="action_settings">Settings</string>
     <string name="title_activity_posts">PostsActivity</string>
 

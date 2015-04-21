@@ -1,0 +1,62 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.bitcamp.benjamin.tracker_lab.LocationFragment">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+  <TableLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content">
+
+      <TableRow android:gravity="center">
+          <TextView
+              android:text="@string/label_latitude"
+              android:textSize="20dp"
+              android:textStyle="bold"/>
+          <TextView
+              android:text="@string/placeholder"
+              android:textSize="20dp"
+              android:id="@+id/text_view_latitude"/>
+      </TableRow>
+
+      <TableRow android:gravity="center">
+          <TextView
+              android:text="@string/label_longitude"
+              android:textSize="20dp"
+              android:textStyle="bold"/>
+          <TextView
+              android:text="@string/placeholder"
+              android:textSize="20dp"
+              android:id="@+id/text_view_longitude"/>
+      </TableRow>
+
+      <TableRow android:gravity="center">
+          <TextView
+              android:text="@string/label_altitude"
+              android:textSize="20dp"
+              android:textStyle="bold"/>
+          <TextView
+              android:text="@string/placeholder"
+              android:textSize="20dp"
+              android:id="@+id/text_view_altitude"/>
+      </TableRow>
+
+
+
+      </TableLayout>
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list_view_addresses"
+            android:layout_gravity="center">
+
+            </ListView>
+
+    </LinearLayout>
+
+</FrameLayout>
