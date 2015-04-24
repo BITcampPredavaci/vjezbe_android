@@ -16,6 +16,7 @@ public class AppLocation {
 
     private Context mAppContext;
     private LocationManager mLocationManager;
+    private boolean mTracking;
 
     private static AppLocation sAppLocation;
 
@@ -35,16 +36,34 @@ public class AppLocation {
 
     public void startLocationTrack(){
 
+        int flag = mTracking ? 0 : PendingIntent.FLAG_NO_CREATE;
+
         Intent broadcast = new Intent(ACTION_TAG);
         PendingIntent pendingIntent =
                 PendingIntent.getBroadcast(mAppContext,
-                        0, broadcast, 0);
+                        0, broadcast, flag);
 
         mLocationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
                 0,
                 0,
                 pendingIntent);
+        mTracking = true;
+    }
 
+    public void stopLocationTrack(){
+        Intent broadcast = new Intent(ACTION_TAG);
+        PendingIntent pendingIntent =
+                PendingIntent.getBroadcast(mAppContext,
+                        0, broadcast, PendingIntent.FLAG_NO_CREATE);
+
+        if(pendingIntent != null){
+            mLocationManager.removeUpdates(pendingIntent);
+            pendingIntent.cancel();
+        }
+    }
+
+    public boolean isTracking(){
+        return mTracking;
     }
 }

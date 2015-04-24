@@ -3,14 +3,20 @@ package com.bitcamp.benjamin.tracker_lab;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +31,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -35,6 +42,8 @@ public class LocationFragment extends Fragment {
 
     private TextView mLatitudeText, mLongitudeText, mAltitudeText;
     private ListView mAddressesList;
+
+    private ArrayList<String> mAddresses;
 
     public LocationFragment() {
         // Required empty public constructor
@@ -51,9 +60,28 @@ public class LocationFragment extends Fragment {
         mLongitudeText = (TextView) fragmentView.findViewById(R.id.text_view_longitude);
         mAltitudeText = (TextView) fragmentView.findViewById(R.id.text_view_altitude);
 
+        mAddresses = new ArrayList<String>();
         mAddressesList = (ListView) fragmentView.findViewById(R.id.list_view_addresses);
-        //TODO
-        //add adapter and data
+
+        mAddressesList.setAdapter(
+                new ArrayAdapter<String>(
+                        getActivity(),
+                        android.R.layout.simple_list_item_1,
+                        mAddresses
+                )
+        );
+
+        mAddressesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String userLocation = (String) parent.getAdapter().getItem(position);
+                Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+                smsIntent.setData(Uri.parse("smsto:123456"));
+                smsIntent.setType("vnd.android-dir/mms-sms");
+                smsIntent.putExtra("sms_body", "I am at " + userLocation);
+                startActivity(smsIntent);
+            }
+        });
 
 
 
@@ -83,8 +111,15 @@ public class LocationFragment extends Fragment {
                             for(int i = 0; i < resultsArray.length(); i++){
                                 JSONObject address = resultsArray.getJSONObject(i);
                                 Log.d("LocationApp", address.getString("formatted_address"));
+                                mAddresses.add(address.getString("formatted_address"));
                             }
-                        } catch (JSONException e) {
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ((ArrayAdapter<String>)mAddressesList.getAdapter()).notifyDataSetChanged();
+                                }
+                            });
+                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
